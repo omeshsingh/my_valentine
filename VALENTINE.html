@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my Valentine</title>
+    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <style>
+body{
+    background-image: url("backgroud_valentine.png");
+    background-size: cover;
+    margin: 0; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    min-height: 100vh;
+}
+
+#question{
+    width: 80%;
+    max-width: 500px; 
+    margin: auto; 
+    border-radius: 30px;
+    text-align: center;
+    background-color: #FFC0CB;
+    border: 8px solid transparent; 
+    border-color: rgb(242, 108, 215);
+    overflow: hidden; 
+}
+
+#inner_design{
+    padding: 20px; 
+}
+
+#inner_design img{
+    max-width: 100%; 
+    height: auto; 
+}
+
+#inner_design h1{
+    font-family: 'Lobster', cursive;
+    font-size: 5vw; 
+    color: red;
+}
+
+#inner_design button {
+    padding: 10px 20px; 
+    margin: 10px 0; 
+    border: 5px solid red;
+    background-color: #f4d4d9;
+    font-family: 'Lobster', cursive;
+    border-radius: 20px;
+    font-size: 4vw; 
+}
+
+/* #inner_design .move:hover {
+    display: none; 
+} */
+
+#inner_design a{
+    text-decoration: none;
+    color:inherit;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 600px) {
+    #question {
+        width: 80%; /* Adjust width for smaller screens */
+    }
+
+    #inner_design h1 {
+        font-size: 8vw; /* Increase font size for smaller screens */
+    }
+
+    #inner_design button {
+        font-size: 6vw; /* Increase font size for smaller screens */
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div id="question">
+        <div id="inner_design">
+            <img src="peach-and-goma-peach-goma.gif" alt="Cute Cat GIF">
+            <h1>WOULD YOU LIKE TO GO OUT WITH ME? PLEASE</h1>
+            <button onclick="shrinkNoButton()"><a href="thanku.html">YES! I WILL &#x2665</a></button>
+            <br>
+            <button class="move" onclick="shrinkNoButton()">NO</button>
+        </div>
+    </div>
+
+    <script>
+        const buttonTexts = [
+            "YES! I WILL ♥",
+            "PLEASE ♥ !",
+            "I WILL BE SAD IF YOU WON'T",
+            "KINDLY RECONCIDER!",
+            "I REALLY LIKE YOU",
+            "I WILL BE VERY SAD :(",
+            "IF THAT IS YOUR WISH"
+        ];
+        let clickCountYes = 0;
+        let clickCountNo = 0;
+    
+        function shrinkYesButton() {
+            // button.textContent = buttonTexts[clickCountNo];
+            clickCountYes++;
+            if (clickCountYes <= 7) {
+                let button = document.querySelector('.move');
+                let currentFontSize = parseFloat(window.getComputedStyle(button).fontSize);
+                button.style.fontSize = (currentFontSize * 0.76) + 'px';
+            }
+            if (clickCountYes === 7) {
+                let button = document.querySelector('.move');
+                button.style.display = 'none';
+            }
+        }
+
+        function shrinkNoButton() {
+            shrinkYesButton();
+            clickCountNo++;
+            // button.textContent = buttonTexts[clickCountNo];
+
+            if (clickCountNo <= 7) {
+                let button = document.querySelector('button:not(.move)');
+                let currentFontSize = parseFloat(window.getComputedStyle(button).fontSize);
+                button.style.fontSize = (currentFontSize * 1.2) + 'px';
+                button.textContent = buttonTexts[clickCountNo];
+            }
+            if (clickCountNo === 7) {
+                let button = document.querySelector('button:not(.move)');
+                window.location.href = "https://www.youtube.com/watch?v=BiVyN2ftrrs";
+            }
+        }
+    </script>
+</body>
+</html>
